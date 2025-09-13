@@ -2,14 +2,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 
-#import "../YTVideoOverlay/Header.h"
-#import "../YTVideoOverlay/Init.x"
-#import "../YouTubeHeader/YTColor.h"
-#import "../YouTubeHeader/QTMIcon.h"
-#import "../YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
-#import "../YouTubeHeader/YTMainAppVideoPlayerOverlayView.h"
-#import "../YouTubeHeader/YTMainAppControlsOverlayView.h"
-#import "../YouTubeHeader/YTPlayerViewController.h"
+#import <YTVideoOverlay/Header.h>
+#import <YTVideoOverlay/Init.x>
+#import <YouTubeHeader/YTColor.h>
+#import <YouTubeHeader/QTMIcon.h>
+#import <YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h>
+#import <YouTubeHeader/YTMainAppVideoPlayerOverlayView.h>
+#import <YouTubeHeader/YTMainAppControlsOverlayView.h>
+#import <YouTubeHeader/YTPlayerViewController.h>
 
 #define TweakKey @"YouTimeStamp"
 
