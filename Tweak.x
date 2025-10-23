@@ -94,7 +94,7 @@ static UIImage *timestampImage(NSString *qualityLabel) {
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         [pasteboard setString:modifiedURL];
         // Show a snackbar to inform the user
-        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"URL copied to clipboard"]];
+        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:NSLocalizedString(@"URL_COPIED")]];
 
     } else {
         NSLog(@"No video ID available");
