@@ -1,4 +1,3 @@
-// Settings
-
 "ENABLED" = "Show Timestamp button";
 "POSITION" = "Timestamp button position";
+"URL_COPIED" = "URL Copied to Clipboard";
