@@ -101,9 +101,7 @@ static UIImage *timestampImage(NSString *qualityLabel) {
             bundle ?: [NSBundle mainBundle],
             @"Message when URL is copied"
         );
-        if (!msg || [msg length] == 0) {
-            msg = @"URL Copied!"; // fallback
-        }
+
         // Show snackbar
         [[%c(GOOHUDManagerInternal) sharedInstance]
             showMessageMainThread:[%c(YTHUDMessage) messageWithText:msg]];
