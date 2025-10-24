@@ -93,10 +93,20 @@ static UIImage *timestampImage(NSString *qualityLabel) {
         // Copy the link to clipboard
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         [pasteboard setString:modifiedURL];
-        // Show a snackbar to inform the user
-        NSBundle *bundle = [NSBundle bundleWithPath:@"/Library/Application Support/YouTimeStamp/"];
-        NSString *msg = NSLocalizedStringFromTableInBundle(@"URL_COPIED", nil, bundle, @"Message when URL is copied");
-        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:msg]];
+        // Load localized string
+        NSBundle *bundle = YouTimeStampBundle();
+        NSString *msg = NSLocalizedStringFromTableInBundle(
+            @"URL_COPIED",
+            nil,
+            bundle ?: [NSBundle mainBundle],
+            @"Message when URL is copied"
+        );
+        if (!msg || [msg length] == 0) {
+            msg = @"URL Copied!"; // fallback
+        }
+        // Show snackbar
+        [[%c(GOOHUDManagerInternal) sharedInstance]
+            showMessageMainThread:[%c(YTHUDMessage) messageWithText:msg]];
 
     } else {
         NSLog(@"No video ID available");
