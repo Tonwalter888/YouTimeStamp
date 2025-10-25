@@ -28,7 +28,7 @@
 @end
 
 @interface YTMainAppControlsOverlayView (YouTimeStamp)
-@property (nonatomic, assign) YTPlayerViewController *playerViewController;
+@property (nonatomic, weak) YTPlayerViewController *playerViewController;
 - (void)didPressYouTimeStamp:(id)arg;
 @end
 
