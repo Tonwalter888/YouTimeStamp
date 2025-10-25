@@ -14,7 +14,7 @@
 #define TweakKey @"YouTimeStamp"
 
 @interface YTMainAppVideoPlayerOverlayViewController (YouTimeStamp)
-@property (nonatomic, assign) YTPlayerViewController *parentViewController;
+@property (nonatomic, weak) YTPlayerViewController *parentViewController;
 @end
 
 @interface YTMainAppVideoPlayerOverlayView (YouTimeStamp)
@@ -148,14 +148,6 @@ static UIImage *timestampImage(NSString *qualityLabel) {
 - (UIImage *)buttonImage:(NSString *)tweakId {
     return [tweakId isEqualToString:TweakKey] ? timestampImage(@"3") : %orig;
 }
-
-%new(v@:@)
-- (void)didPressYouTimeStamp:(id)arg {
-    YTInlinePlayerBarController *delegate = self.delegate;
-    if (!delegate) {
-        NSLog(@"[YouTimeStamp] No inline bar delegate found");
-        return;
-    }
 
 // Custom method to handle the timestamp button press
 %new(v@:@)
