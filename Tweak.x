@@ -107,7 +107,7 @@ static UIImage *timestampImage(NSString *qualityLabel) {
             showMessageMainThread:[%c(YTHUDMessage) messageWithText:msg]];
 
     } else {
-        NSLog(@"No video ID available");
+        NSLog(@"[YouTimeStamp] No video ID available");
     }
 }
 %end
