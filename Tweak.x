@@ -157,31 +157,21 @@ static UIImage *timestampImage(NSString *qualityLabel) {
         return;
     }
 
-    YTMainAppVideoPlayerOverlayViewController *overlayVC = nil;
-
-    // Try safe KVC
-    @try {
-        overlayVC = [delegate valueForKey:@"_delegate"];
-    }
-    @catch (NSException *e) {
-        NSLog(@"[YouTimeStamp] Could not access _delegate ivar: %@", e);
-    }
-
-    if ([overlayVC isKindOfClass:%c(YTMainAppVideoPlayerOverlayViewController)]) {
-        YTPlayerViewController *parentViewController = overlayVC.parentViewController;
-        if (parentViewController) {
-            [parentViewController didPressYouTimeStamp];
-        } else {
-            NSLog(@"[YouTimeStamp] Parent VC not found");
-        }
-    } else {
-        NSLog(@"[YouTimeStamp] overlayVC is not a YTMainAppVideoPlayerOverlayViewController");
+// Custom method to handle the timestamp button press
+%new(v@:@)
+- (void)didPressYouTimeStamp:(id)arg {
+    // Navigate to the YTPlayerViewController class from here
+    YTInlinePlayerBarController *delegate = self.delegate; // for @property
+    YTMainAppVideoPlayerOverlayViewController *_delegate = [delegate valueForKey:@"_delegate"]; // for ivars
+    YTPlayerViewController *parentViewController = _delegate.parentViewController;
+    // Call our custom method in the YTPlayerViewController class
+    if (parentViewController) {
+        [parentViewController didPressYouTimeStamp];
     }
 }
 
 %end
 %end
-
 
 %ctor {
     initYTVideoOverlay(TweakKey, @{
