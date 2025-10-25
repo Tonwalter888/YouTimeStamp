@@ -36,7 +36,7 @@
 @end
 
 @interface YTInlinePlayerBarContainerView (YouTimeStamp)
-@property (nonatomic, strong) YTInlinePlayerBarController *delegate;
+@property (nonatomic, weak) YTInlinePlayerBarController *delegate;
 - (void)didPressYouTimeStamp:(id)arg;
 @end
 
