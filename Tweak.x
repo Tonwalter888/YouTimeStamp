@@ -4,17 +4,17 @@
 
 #import "../YTVideoOverlay/Header.h"
 #import "../YTVideoOverlay/Init.x"
-#import <YouTubeHeader/YTColor.h>
-#import <YouTubeHeader/QTMIcon.h>
-#import <YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h>
-#import <YouTubeHeader/YTMainAppVideoPlayerOverlayView.h>
-#import <YouTubeHeader/YTMainAppControlsOverlayView.h>
-#import <YouTubeHeader/YTPlayerViewController.h>
+#import "../YouTubeHeader/YTColor.h"
+#import "../YouTubeHeader/QTMIcon.h"
+#import "../YouTubeHeader/YTMainAppVideoPlayerOverlayViewController.h"
+#import "../YouTubeHeader/YTMainAppVideoPlayerOverlayView.h"
+#import "../YouTubeHeader/YTMainAppControlsOverlayView.h"
+#import "../YouTubeHeader/YTPlayerViewController.h"
 
 #define TweakKey @"YouTimeStamp"
 
 @interface YTMainAppVideoPlayerOverlayViewController (YouTimeStamp)
-@property (nonatomic, weak) YTPlayerViewController *parentViewController;
+@property (nonatomic, assign) YTPlayerViewController *parentViewController;
 @end
 
 @interface YTMainAppVideoPlayerOverlayView (YouTimeStamp)
@@ -23,12 +23,12 @@
 
 @interface YTPlayerViewController (YouTimeStamp)
 @property (nonatomic, assign) CGFloat currentVideoMediaTime;
-@property (nonatomic, strong) NSString *currentVideoID;
+@property (nonatomic, assign) NSString *currentVideoID;
 - (void)didPressYouTimeStamp;
 @end
 
 @interface YTMainAppControlsOverlayView (YouTimeStamp)
-@property (nonatomic, weak) YTPlayerViewController *playerViewController;
+@property (nonatomic, assign) YTPlayerViewController *playerViewController;
 - (void)didPressYouTimeStamp:(id)arg;
 @end
 
@@ -36,7 +36,7 @@
 @end
 
 @interface YTInlinePlayerBarContainerView (YouTimeStamp)
-@property (nonatomic, weak) YTInlinePlayerBarController *delegate;
+@property (nonatomic, strong) YTInlinePlayerBarController *delegate;
 - (void)didPressYouTimeStamp:(id)arg;
 @end
 
@@ -107,7 +107,7 @@ static UIImage *timestampImage(NSString *qualityLabel) {
             showMessageMainThread:[%c(YTHUDMessage) messageWithText:msg]];
 
     } else {
-        NSLog(@"[YouTimeStamp] No video ID available");
+        NSLog(@"No video ID available");
     }
 }
 %end
