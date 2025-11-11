@@ -1,3 +1,3 @@
-"ENABLED" = "Show Copy Video URL with TimeStamp button";
-"POSITION" = "Copy Video URL with TimeStamp button position";
-"URL_COPIED" = "Video URL Copied to Clipboard";
+"ENABLED" = "Show copy video URL with TimeStamp button";
+"POSITION" = "Copy video URL with TimeStamp button position";
+"URL_COPIED" = "Video URL copied to clipboard";
