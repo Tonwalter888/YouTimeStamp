@@ -1,6 +1,6 @@
 Package: com.water888.youtimestamp
 Name: YouTimeStamp
-Version: 1.1.1
+Version: 1.1.2
 Architecture: iphoneos-arm
 Description: Copies the video url with the timestamp included
 Maintainer: Tonwalter888
